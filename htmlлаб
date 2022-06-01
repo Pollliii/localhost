@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+<form name="myform" method="post" action="script_php2.php">
+    <br>Приветствие:
+    <p><input type="radio" name="message" value="Здравствуйте">Здравствуйте</p>
+    <p><input type="radio" name="message" value="Привет">Привет</p>
+    <p><input type="radio" name="message" value="Добрый день">Добрый день</p>
+
+    <br>Имя:<br>
+    <select name="name">
+        <option>Никита</option>
+        <option>Марк</option>
+        <option>Тимофей</option>
+    </select><br>
+
+    <p>Выберите цвет фона: <input type="color" name="color"></p>
+
+    <br><input type="submit" value="Обработать данные на сервере">
+</form>
+</body>
+</html>
+
+script_php2.php:
+  <?php
+    echo $_POST['message'].", ".$_POST['name'];
+    $color = $_POST['color'];
+    echo "<body style='background-color:$color'>";
+    ?>
